@@ -1,0 +1,75 @@
+﻿# === Python ===
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# === 虚拟环境 ===
+venv/
+env/
+.venv/
+.env/
+
+# === IDE ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# === 操作系统 ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === 深度学习：模型权重 / 检查点（大文件）===
+*.pth
+*.pt
+*.ckpt
+*.pkl
+*.h5
+*.hdf5
+*.onnx
+*.pb
+*.safetensors
+saved_models/
+checkpoints/
+checkpoint/
+weights/
+*.bin
+
+# === 深度学习：数据集 ===
+data/
+dataset/
+datasets/
+data_root/
+cifar-10-batches-py/
+cifar-100-python/
+stl10_binary/
+*.tar.gz
+*.zip
+*.rar
+*.7z
+
+# === 训练输出 / 日志 ===
+runs/
+wandb/
+tensorboard/
+*.tfevents.*
+events.out.tfevents.*
+
+# === Jupyter ===
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# === 临时文件 ===
+tmp/
+temp/
+*.log
+*.tmp
+*.bak

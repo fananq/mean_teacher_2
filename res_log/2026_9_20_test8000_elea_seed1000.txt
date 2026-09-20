@@ -1,0 +1,45 @@
+==> Labeled 图片路径: ../meanteacher_original/data/images
+==> Unlabeled 图片路径: ../meanteacher_original/data/elea_dataset/elea_dataset/my_data/images
+==> 使用 GPU: 0 (PyTorch 识别为 cuda:0)
+==> 创建三网阵列: Student(双流), Teacher1(锚点/绿图), Teacher2(EMA/红图)
+==> 2. 准备数据加载器...
+==> 数据准备完毕: 训练有标签=7199, 无标签=74, 验证集=800
+
+>>> 阶段一: 源域监督预训练 (10 Epochs) <<<
+
+>>> 分水岭: 复制学生知识给 T1 和 T2 <<<
+
+>>> 阶段二: 引入目标域探索 (40 Epochs) <<<
+Traceback (most recent call last):
+  File "/public/lighting/fananqi/mean-teacher/2.meanteacher_cross+new_stable_teacher_6_14/main.py", line 392, in <module>
+    main()
+  File "/public/lighting/fananqi/mean-teacher/2.meanteacher_cross+new_stable_teacher_6_14/main.py", line 272, in main
+    val_loss = validate(val_loader, teacher2_ema, criterion, device)
+  File "/public/lighting/fananqi/mean-teacher/2.meanteacher_cross+new_stable_teacher_6_14/main.py", line 386, in validate
+    for i, (images, _, targets) in enumerate(val_loader):
+  File "/public/lighting/anaconda3/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 708, in __next__
+    data = self._next_data()
+  File "/public/lighting/anaconda3/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1480, in _next_data
+    return self._process_data(data)
+  File "/public/lighting/anaconda3/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1505, in _process_data
+    data.reraise()
+  File "/public/lighting/anaconda3/lib/python3.10/site-packages/torch/_utils.py", line 733, in reraise
+    raise exception
+IndexError: Caught IndexError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/public/lighting/anaconda3/lib/python3.10/site-packages/torch/utils/data/_utils/worker.py", line 349, in _worker_loop
+    data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+  File "/public/lighting/anaconda3/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 50, in fetch
+    data = self.dataset.__getitems__(possibly_batched_index)
+  File "/public/lighting/anaconda3/lib/python3.10/site-packages/torch/utils/data/dataset.py", line 420, in __getitems__
+    return [self.dataset[self.indices[idx]] for idx in indices]
+  File "/public/lighting/anaconda3/lib/python3.10/site-packages/torch/utils/data/dataset.py", line 420, in <listcomp>
+    return [self.dataset[self.indices[idx]] for idx in indices]
+  File "/public/lighting/fananqi/mean-teacher/2.meanteacher_cross+new_stable_teacher_6_14/dataset.py", line 30, in __getitem__
+    img_name = str(self.data_frame.iloc[idx, 0])
+  File "/public/lighting/anaconda3/lib/python3.10/site-packages/pandas/core/indexing.py", line 1146, in __getitem__
+    return self.obj._get_value(*key, takeable=self._takeable)
+  File "/public/lighting/anaconda3/lib/python3.10/site-packages/pandas/core/frame.py", line 4003, in _get_value
+    return series._values[index]
+IndexError: index 6347 is out of bounds for axis 0 with size 74
+
